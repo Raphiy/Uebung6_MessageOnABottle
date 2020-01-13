@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
 	//File Weihnachten.txt öffnen und mit rb (read, binary)
@@ -16,7 +17,7 @@ int main() {
 		printf("Unzulässiger Text");
 	}
 	//Variablen
-	int binchar[8] = {0};
+	int binchar[8] = { 0 };
 	int output = 0;
 	int input;
 	int n = 0;
@@ -26,7 +27,7 @@ int main() {
 		//Buchstabe in input schreiben
 		input = fgetc(doc);
 		//überprüfen ob eingelesener Buchstabe ein gültiges Zeichen ist
-		if (input == 49 || input == 48 || input == 32 || input == 10|| input == 13 || input == EOF) {
+		if (input == 49 || input == 48 || isspace(input) || input == EOF) {
 			//Überprüfen ob eingegebenes Zecihen 1 oder 0 ist
 			if (input == 49 || input == 48) {
 				//1 oder 0 in nächste Stelle von binchar schreiben
